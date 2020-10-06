@@ -1,0 +1,14 @@
+{% include 'navigation.html'%}
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Welcome !!!!</h1>
+        <h3>Following Count: {{following_cnt}}</h3>
+        <h3>Followers Count: {{followers_cnt}}</h3>
+    </div>
+</div>
+<h1>User with most links shared is: {{maxtweet}}</h1>
+{{name}}
+{% for j,k in lis %}
+<b>{{j}}</b> : {{k}}
+<br>
+{% endfor %}
