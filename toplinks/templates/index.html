@@ -9,6 +9,11 @@
 <h1>User with most links shared is: {{maxtweet}}</h1>
 {{name}}
 {% for j,k in lis %}
-<b>{{j}}</b> : {{k}}
+<div>
+    <div>
+        <b>{{j}}</b>
+    </div>
+    {{k}}
+</div>
 <br>
 {% endfor %}

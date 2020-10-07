@@ -10,6 +10,7 @@ import twitter
 import time
 import timedelta
 import requests
+import datetime
 from .models import Tweet
 
 
@@ -33,7 +34,14 @@ def loginn(request):
     for i in li:
         tweetcount = 0
         for j in api.user_timeline(i):
-            if 'https' in j.text:
+            k = str(j.created_at).split(' ')[0]
+            z1 = time.mktime(datetime.datetime.strptime(
+                k, "%Y-%m-%d").timetuple())
+            ct = str(datetime.datetime.now()).split(' ')[0]
+            z2 = time.mktime(datetime.datetime.strptime(
+                ct, "%Y-%m-%d").timetuple())
+            temp = (z2-z1) <= 604800.0
+            if 'https' in j.text and temp:
                 lis.append([i, j.text])
                 tweetcount += 1
         l.append([tweetcount, i])
